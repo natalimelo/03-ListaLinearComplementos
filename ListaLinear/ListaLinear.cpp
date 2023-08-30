@@ -19,6 +19,7 @@ int lista[MAX]{};
 int nElementos = 0;
 
 
+
 int main()
 {
 	menu();
@@ -120,10 +121,29 @@ void inserirElemento()
 
 }
 
+
 void excluirElemento()
+
 {
+int pos;
+int valor;
 
+cout << "Digite um elemento para excluir: ";
+cin >> valor;
 
+pos = posicaoElemento(valor);
+	if (pos == -1)
+	{
+		cout << "Elemento nao foi encontrado" << endl;
+	}
+	else {
+	
+		for (int n = pos; n < nElementos - 1; n++) {
+			lista[n] = lista[n + 1];
+		}
+		nElementos = nElementos - 1;
+		cout << "Elemento excluido " << endl;
+	}
 }
 
 void buscarElemento()
